@@ -23,7 +23,7 @@
       <artifactId>java-client</artifactId>
       <version>2.7.2</version>
     </dependency>
-    
+
 
 
     <dependency>
@@ -97,11 +97,11 @@
                     <manifestEntries>
                       <Main-Class>io.vertx.core.Launcher</Main-Class>
 
-                      <Main-Verticle>controller.EmployeeController</Main-Verticle>
+                      <Main-Verticle>com.pl2_vertx.main.Application</Main-Verticle>
 
                       <Main-Verticle>com.pl2_vertx.controller.EntryPoint</Main-Verticle>
 
-                    </manifestEntries>
+                    </manifestEntries>-jar
                   </transformer>
                 </transformers>
                 <artifactSet/>

@@ -7,6 +7,7 @@ import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.handler.BodyHandler;
 
 public class EntryPoint extends AbstractVerticle {
 
@@ -25,6 +26,7 @@ public class EntryPoint extends AbstractVerticle {
                     .putHeader("content-type", "text/html")
                     .end("<h1>Hello from my first Vert.x 3 application</h1>");
         });
+        router.route().handler(BodyHandler.create());
 
         router.get("/api/employees").handler(EmployeeController::getAll);
         router.get("/api/employees/:id").handler(EmployeeController::getOne);
