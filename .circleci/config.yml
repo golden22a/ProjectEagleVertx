@@ -1,7 +1,7 @@
 version: 2
 jobs:
-  build: ~/ProjectEagleVertx
-    working_directory:
+  build: 
+    working_directory: ~/ProjectEagleVertx
     docker:
       - image:circleci/openjdk:8-jdk-browsers
   
