@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build: ~/suresh/ProjectEagleVertx
+    working_directory:
+    docker:
+      - image:circleci/openjdk:8-jdk-browsers
+  
+    steps:
+    - checkout:
+        path: ~/suresh/ProjectEagleVertx
+    - run: mvn dependency:go-offline
+    - run: mvn clean install
+    - store_artifacts:
+       path: target/vertx-learning-1.0-SNAPSHOT.jar
