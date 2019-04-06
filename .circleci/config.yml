@@ -1,13 +1,13 @@
 version: 2
 jobs:
-  build: ~/suresh/ProjectEagleVertx
+  build: ~/ProjectEagleVertx
     working_directory:
     docker:
       - image:circleci/openjdk:8-jdk-browsers
   
     steps:
     - checkout:
-        path: ~/suresh/ProjectEagleVertx
+        path: ~/ProjectEagleVertx
     - run: mvn dependency:go-offline
     - run: mvn clean install
     - store_artifacts:
