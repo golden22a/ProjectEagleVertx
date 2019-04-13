@@ -23,6 +23,7 @@ jobs:
         enabled: true
     working_directory: ~/ProjectEagleVertex
     steps:
+      - run: ls -a
       - run: cp target/vertx-learning-1.0-SNAPSHOT-fat.jar ../
       - run: git checkout release
       - run: mv ../vertx-learning-1.0-SNAPSHOT-fat.jar ./
