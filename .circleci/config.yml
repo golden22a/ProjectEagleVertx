@@ -43,7 +43,7 @@ jobs:
     - run: git add -A && git commit -m "New build on date $(date) " && git push
 workflows:
   version: 2
-  workflow:
+  build_and_deploy:
     jobs:
       - build:
           filters:
