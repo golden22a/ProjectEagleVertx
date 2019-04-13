@@ -40,7 +40,7 @@ jobs:
     - run: cp target/vertx-learning-1.0-SNAPSHOT-fat.jar ../
     - run: git checkout release
     - run: mv ../vertx-learning-1.0-SNAPSHOT-fat.jar ./
-    - run: git add -A && git commit -m "New build" && git push
+    - run: git add -A && git commit -m "New build on date $(date) " && git push
 workflows:
   version: 2
   workflow:
