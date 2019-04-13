@@ -18,6 +18,13 @@ jobs:
         - ~/.m2
         key: v1-dependencies-{{ checksum "pom.xml"}}
     - run: mvn clean install
+  deploy:
+    steps:
+      - run: cp target/vertx-learning-1.0-SNAPSHOT-fat.jar ../
+      - run: git checkout release
+      - run: mv ../vertx-learning-1.0-SNAPSHOT-fat.jar ./
+      - run: git add -A && git commit -m "New build" && git push
+
 workflows:
   version: 2
   workflow:
