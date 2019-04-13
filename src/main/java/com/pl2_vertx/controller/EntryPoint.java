@@ -18,7 +18,13 @@ public class EntryPoint extends AbstractVerticle {
         Vertx vertx = Vertx.vertx();
         HttpServer hs = vertx.createHttpServer();
         Router router = Router.router(vertx);
+        System.out.println("heeere");
 
+        int port = 8080;
+        Integer serverPort = Integer.getInteger("http.port");
+        if(serverPort != null){
+            port = (int) serverPort;
+        }
 
         router.route("/").handler(routingContext -> {
             HttpServerResponse response = routingContext.response();
@@ -36,9 +42,8 @@ public class EntryPoint extends AbstractVerticle {
         router.delete("/api/employees/:id").handler(EmployeeController::deleteOne);
 
         router.patch("/api/employees/:id").handler(EmployeeController::updateOne);
-
         hs.requestHandler(router)
-                .listen(8080);
+                .listen( port);
 
     }
 
