@@ -21,6 +21,7 @@ jobs:
   deploy:
     machine:
         enabled: true
+    working_directory: ~/ProjectEagleVertex
     steps:
       - run: cp target/vertx-learning-1.0-SNAPSHOT-fat.jar ../
       - run: git checkout release
