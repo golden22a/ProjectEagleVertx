@@ -19,8 +19,8 @@ jobs:
         key: v1-dependencies-{{ checksum "pom.xml"}}
     - run: mvn clean install
   deploy:
-    machine:
-        enabled: true
+    docker:
+    - image: circleci/openjdk:8-jdk
     working_directory: ~/ProjectEagleVertex
     steps:
       - run: ls -a
