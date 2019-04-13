@@ -19,9 +19,9 @@ public class EntryPoint extends AbstractVerticle {
         HttpServer hs = vertx.createHttpServer();
         Router router = Router.router(vertx);
         System.out.println("heeere");
-
         int port = 8080;
         Integer serverPort = Integer.getInteger("http.port");
+        System.out.println("this is the server port "+serverPort);
         if(serverPort != null){
             port = (int) serverPort;
         }
