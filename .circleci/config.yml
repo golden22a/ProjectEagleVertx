@@ -19,6 +19,8 @@ jobs:
         key: v1-dependencies-{{ checksum "pom.xml"}}
     - run: mvn clean install
   deploy:
+    machine:
+        enabled: true
     steps:
       - run: cp target/vertx-learning-1.0-SNAPSHOT-fat.jar ../
       - run: git checkout release
@@ -30,3 +32,9 @@ workflows:
   workflow:
     jobs:
     - build
+    - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
